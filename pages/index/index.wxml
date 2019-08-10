@@ -1,0 +1,38 @@
+<!--index.wxml-->
+<view class="container">
+  <!--渲染当前页面获得的data.text数据-->
+  <text>
+    {{text}}
+  </text>
+
+  <!-- 触发index.js中Page中定义的changeText函数-->
+  <button bindtap="changeText" >
+    修改文字
+  </button>
+
+  <!-- 图片可以使用外部链接-->
+  <image src="https://user-images.githubusercontent.com/51941558/60329157-61801580-99c2-11e9-9d22-8283030911dc.png" ></image>
+    
+  <!-- 条件语句 -->
+  <text wx:if="{{isMale}}"> is Male</text>
+  <text wx:else="{{isMale}}"> is Female</text>
+
+  <!-- 列表循环，使用index 和 item这两个魔法变量
+       获得循环中的索引和元素 -->
+  <text wx:for="{{names}}" wx:key="{{item}}">
+    {{index}}: {{item}}
+  </text>
+
+  <!-- 定义一个模板 -->
+  <template name="staffName">
+    <view> FirstName: {{firstName}}, LastName: {{lastName}} </view>
+  </template>
+
+  <!-- 使用上面模板，并且传入数据 -->
+  <template is="staffName" data="{{...name}}"></template>
+
+  <!-- 在监听的事件中，切换路由-->
+  <button bindtap="bindViewTap" >
+    前往log页面
+  </button>
+</view>
