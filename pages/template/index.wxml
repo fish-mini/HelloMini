@@ -1,0 +1,33 @@
+<view class="container">
+  <!--渲染当前页面获得的data.text数据，并使它成为红色
+      和vue不同，无论是在属性中还是在文字中，数据渲染都是使用 {{}} -->
+  <text style="color:{{color}}">
+    {{text}}
+  </text>
+
+  <!-- 触发index.js中Page中定义的changeText函数-->
+  <button bindtap="changeText" >
+    修改文字
+  </button>
+
+  <!-- 图片可以使用外部链接-->
+  <image src="https://avatars2.githubusercontent.com/u/42405899" ></image>
+    
+  <!-- 条件语句 -->
+  <text wx:if="{{isMale}}"> is Male</text>
+  <text wx:else="{{isMale}}"> is Female</text>
+
+  <!-- 列表循环，使用index 和 item这两个魔法变量
+       获得循环中的索引和元素 -->
+  <text wx:for="{{names}}" wx:key="{{item}}">
+    {{index}}: {{item}}
+  </text>
+
+  <!-- 定义一个模板 -->
+  <template name="staffName">
+    <view> FirstName: {{firstName}}, LastName: {{lastName}} </view>
+  </template>
+
+  <!-- 使用上面模板，并且传入数据 -->
+  <template is="staffName" data="{{...name}}"></template>
+</view>

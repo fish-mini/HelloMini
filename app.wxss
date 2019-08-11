@@ -1,4 +1,4 @@
-/**app.wxss**/
+/** 全局样式，对所有页面有效，推荐使用flex布局 **/
 .container {
   height: 100%;
   display: flex;

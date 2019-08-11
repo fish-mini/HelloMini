@@ -1,0 +1,8 @@
+<view class="container">
+
+  <!-- 触发index.js中Page中定义的changeText函数-->
+  <button bindtap="changeText" >
+    修改文字
+  </button>
+  <input  />
+</view>
